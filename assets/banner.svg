@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f24" />
+      <stop offset="50%" stop-color="#12103a" />
+      <stop offset="100%" stop-color="#1b0e38" />
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="primaryGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02" />
+    </linearGradient>
+
+    <!-- Filters for Glow & Shadows -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="30" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+
+    <!-- Background Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.04" />
+      <circle cx="40" cy="40" r="1.5" fill="#a855f7" fill-opacity="0.25" />
+    </pattern>
+
+    <style>
+      /* CSS Keyframe Animations */
+      @keyframes floatSlow1 {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-16px) rotate(1.5deg); }
+      }
+      @keyframes floatSlow2 {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(14px) rotate(-1.5deg); }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.45; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.12); }
+      }
+      @keyframes slideTrack {
+        0% { stroke-dashoffset: 600; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes shimmerBadge {
+        0%, 100% { opacity: 0.85; }
+        50% { opacity: 1; filter: drop-shadow(0 0 8px #a855f7); }
+      }
+
+      .floating-card-1 {
+        animation: floatSlow1 7s ease-in-out infinite;
+      }
+      .floating-card-2 {
+        animation: floatSlow2 8.5s ease-in-out infinite;
+      }
+      .glow-orb-1 {
+        animation: pulseGlow 6s ease-in-out infinite;
+        transform-origin: 220px 100px;
+      }
+      .glow-orb-2 {
+        animation: pulseGlow 7s ease-in-out infinite 1s;
+        transform-origin: 980px 260px;
+      }
+      .laser-path {
+        stroke-dasharray: 600;
+        animation: slideTrack 5s linear infinite;
+      }
+      .shimmer-badge {
+        animation: shimmerBadge 3.5s ease-in-out infinite;
+      }
+      .title-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+      .sub-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+      }
+    </style>
+  </defs>
+
+  <!-- Deep Canvas Background -->
+  <rect width="1200" height="360" fill="url(#bgGrad)" />
+  <rect width="1200" height="360" fill="url(#grid)" />
+
+  <!-- DYNAMIC LAYER 1: Ambient Glowing Orbs (Deep Background) -->
+  <g opacity="0.6">
+    <circle class="glow-orb-1" cx="200" cy="90" r="140" fill="#6366f1" opacity="0.35" filter="url(#glow)" />
+    <circle class="glow-orb-2" cx="1020" cy="270" r="160" fill="#ec4899" opacity="0.3" filter="url(#glow)" />
+    <circle cx="600" cy="180" r="220" fill="#a855f7" opacity="0.12" filter="url(#glow)" />
+  </g>
+
+  <!-- DYNAMIC LAYER 2: Animated Floating E-Learning Elements (Flanking Sides - Cannot Obscure Foreground) -->
+  
+  <!-- Left Flank Floating Widget (Interactive Quiz & Screencast Pill) -->
+  <g class="floating-card-1" opacity="0.85">
+    <!-- Mini Slide Canvas Widget -->
+    <rect x="50" y="55" width="190" height="110" rx="14" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1.5" filter="url(#cardShadow)" />
+    <!-- Slide Header -->
+    <rect x="65" y="70" width="70" height="8" rx="4" fill="#a855f7" />
+    <circle cx="215" cy="74" r="5" fill="#10b981" />
+    <circle cx="200" cy="74" r="5" fill="#f59e0b" />
+    <circle cx="185" cy="74" r="5" fill="#ef4444" />
+    <!-- Presentation Bars -->
+    <rect x="65" y="92" width="130" height="6" rx="3" fill="#ffffff" fill-opacity="0.25" />
+    <rect x="65" y="106" width="95" height="6" rx="3" fill="#ffffff" fill-opacity="0.18" />
+    <rect x="65" y="120" width="115" height="6" rx="3" fill="url(#primaryGlow)" />
+    <!-- Floating Tag below -->
+    <rect x="75" y="195" width="145" height="34" rx="17" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.2" opacity="0.9" />
+    <text x="147" y="217" text-anchor="middle" fill="#c7d2fe" font-size="12" font-family="sans-serif" font-weight="600">⚡ Interactive Quizzes</text>
+  </g>
+
+  <!-- Right Flank Floating Widget (SCORM, Video & Presentation Nodes) -->
+  <g class="floating-card-2" opacity="0.85">
+    <!-- Mini Video/Course Card -->
+    <rect x="960" y="60" width="190" height="115" rx="14" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1.5" filter="url(#cardShadow)" />
+    <!-- Play & Presentation Preview -->
+    <rect x="975" y="75" width="160" height="58" rx="8" fill="#000000" fill-opacity="0.35" />
+    <!-- Play Icon -->
+    <circle cx="1055" cy="104" r="16" fill="url(#primaryGlow)" />
+    <polygon points="1052,97 1063,104 1052,111" fill="#ffffff" />
+    <!-- Progress Timeline Bar -->
+    <rect x="975" y="145" width="160" height="4" rx="2" fill="#ffffff" fill-opacity="0.15" />
+    <rect x="975" y="145" width="90" height="4" rx="2" fill="url(#accentCyan)" />
+    <circle cx="1065" cy="147" r="4.5" fill="#38bdf8" />
+    <!-- Floating Tag below -->
+    <rect x="980" y="200" width="150" height="34" rx="17" fill="#2e1065" stroke="#a855f7" stroke-width="1.2" opacity="0.9" />
+    <text x="1055" y="222" text-anchor="middle" fill="#e9d5ff" font-size="12" font-family="sans-serif" font-weight="600">📦 SCORM 2004 / xAPI</text>
+  </g>
+
+  <!-- Dynamic Connecting Wave (Bottom) -->
+  <path class="laser-path" d="M 0,345 Q 300,315 600,345 T 1200,345" fill="none" stroke="url(#primaryGlow)" stroke-width="2.5" opacity="0.5" />
+
+  <!-- FOREGROUND LAYER: Protected Central Card & Text (RENDERED LAST, 100% UNHIDDEN) -->
+  <g id="foreground-hero">
+    <!-- Central Translucent Protective Backdrop -->
+    <rect x="250" y="35" width="700" height="280" rx="22" fill="#0c102b" fill-opacity="0.82" stroke="url(#primaryGlow)" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <!-- Top Category Pill / Shimmer Badge -->
+    <g class="shimmer-badge">
+      <rect x="445" y="58" width="310" height="28" rx="14" fill="url(#primaryGlow)" opacity="0.2" stroke="url(#primaryGlow)" stroke-width="1" />
+      <text x="600" y="77" text-anchor="middle" fill="#f472b6" font-size="12" font-family="sans-serif" font-weight="700" letter-spacing="1.5">🎓 E-LEARNING &amp; COURSE AUTHORING</text>
+    </g>
+
+    <!-- Main Title: Awesome E-Learning Presentation Tool -->
+    <text x="600" y="140" text-anchor="middle" fill="#ffffff" font-size="34" class="title-text">
+      Awesome E-Learning Presentation Tools
+    </text>
+
+    <!-- Accent Underline Bar -->
+    <rect x="520" y="156" width="160" height="4" rx="2" fill="url(#primaryGlow)" />
+
+    <!-- Subtitle: Explanatory Context -->
+    <text x="600" y="196" text-anchor="middle" fill="#cbd5e1" font-size="15" class="sub-text">
+      Curated Ecosystem of SaaS Platforms &amp; Open-Source Authoring Frameworks
+    </text>
+
+    <!-- Subtitle Details: Capabilities -->
+    <text x="600" y="222" text-anchor="middle" fill="#94a3b8" font-size="13" class="sub-text">
+      Course Authoring • Interactive Slides • Screencasting • Asynchronous Video • SCORM/LTI
+    </text>
+
+    <!-- Bottom Feature Pills in Foreground -->
+    <g transform="translate(325, 252)">
+      <!-- Pill 1 -->
+      <rect x="0" y="0" width="165" height="32" rx="16" fill="#1e1b4b" stroke="#4338ca" stroke-width="1" />
+      <text x="82" y="20" text-anchor="middle" fill="#a5b4fc" font-size="11.5" font-family="sans-serif" font-weight="600">🏆 Enterprise SaaS</text>
+      
+      <!-- Pill 2 -->
+      <rect x="185" y="0" width="180" height="32" rx="16" fill="#172554" stroke="#1d4ed8" stroke-width="1" />
+      <text x="275" y="20" text-anchor="middle" fill="#93c5fd" font-size="11.5" font-family="sans-serif" font-weight="600">⭐ Open-Source Engines</text>
+      
+      <!-- Pill 3 -->
+      <rect x="385" y="0" width="165" height="32" rx="16" fill="#3b0764" stroke="#7e22ce" stroke-width="1" />
+      <text x="467" y="20" text-anchor="middle" fill="#f0abfc" font-size="11.5" font-family="sans-serif" font-weight="600">🎯 Verified Pricing</text>
+    </g>
+  </g>
+</svg>
